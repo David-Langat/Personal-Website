@@ -1,8 +1,17 @@
+'use client';
+
+import ContentSection from '../components/ContentSection';
+import { hobbiesData } from '../data/hobbies';
+import HobbyCard from '../components/HobbyCard';
+
 export default function HobbiesPage() {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl font-bold text-foreground">Hobbies</h1>
-      <p className="text-lg text-muted-foreground mt-4">This is the Hobbies section.</p>
-    </div>
+    <ContentSection title="Hobbies" className="max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {hobbiesData.map((hobby, index) => (
+          <HobbyCard key={index} {...hobby} />
+        ))}
+      </div>
+    </ContentSection>
   );
 }

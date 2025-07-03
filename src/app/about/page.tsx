@@ -1,9 +1,10 @@
 'use client';
 
+import ContentSection from '../components/ContentSection';
+
 export default function AboutPage() {
   return (
-    <div className="flex-1 flex flex-col items-center p-4 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-foreground mb-8">About Me</h1>
+    <ContentSection title="About Me" className="max-w-4xl mx-auto">
       <div className="text-lg text-foreground space-y-6 leading-relaxed">
         <p>
           I am a dynamic data science graduate with a strong foundation in Artificial Intelligence (AI), Machine Learning (ML), and software development. My academic journey has equipped me with a comprehensive understanding of complex algorithms, data structures, and statistical modeling, enabling me to transform raw data into actionable insights.
@@ -18,6 +19,6 @@ export default function AboutPage() {
           I am passionate about leveraging data-driven approaches to solve real-world challenges and drive innovation. My goal is to contribute to projects that demand both analytical rigor and creative solutions, continuously learning and adapting to new technologies in the ever-evolving landscape of data science and AI.
         </p>
       </div>
-    </div>
+    </ContentSection>
   );
 }

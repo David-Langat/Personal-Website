@@ -1,8 +1,17 @@
+'use client';
+
+import ContentSection from '../components/ContentSection';
+import { projectsData } from '../data/projects';
+import ProjectCard from '../components/ProjectCard';
+
 export default function ProjectsPage() {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl font-bold text-foreground">Projects</h1>
-      <p className="text-lg text-muted-foreground mt-4">This is the Projects section.</p>
-    </div>
+    <ContentSection title="Projects" className="max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projectsData.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </div>
+    </ContentSection>
   );
 }

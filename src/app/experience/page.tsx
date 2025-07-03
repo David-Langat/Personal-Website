@@ -1,8 +1,17 @@
+'use client';
+
+import ContentSection from '../components/ContentSection';
+import { experienceData } from '../data/experience';
+import ExperienceEntry from '../components/ExperienceEntry';
+
 export default function ExperiencePage() {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl font-bold text-foreground">Experience</h1>
-      <p className="text-lg text-muted-foreground mt-4">This is the Experience section.</p>
-    </div>
+    <ContentSection title="Experience" className="max-w-4xl mx-auto">
+      <div className="space-y-8">
+        {experienceData.map((exp, index) => (
+          <ExperienceEntry key={index} {...exp} />
+        ))}
+      </div>
+    </ContentSection>
   );
 }

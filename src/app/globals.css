@@ -44,38 +44,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
 
-.animate-blink {
-  animation: blink 1s infinite;
-}
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(40px); } /* Increased translateY for smoother initial slide */
-  to { opacity: 1; transform: translateY(0); }
-}
 
-.fade-in {
-  animation: fadeIn 1.5s ease-out forwards;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-80px); } /* Increased translateY to move name higher */
-}
-
-.slide-up {
-  animation: slideUp 1s ease-out forwards;
-}
-
-@keyframes fadeInMessage {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in-message {
-  animation: fadeInMessage 1s ease-out forwards;
-}

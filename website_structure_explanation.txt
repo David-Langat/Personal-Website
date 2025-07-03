@@ -1,0 +1,82 @@
+### Overall Structure (Next.js App Router)
+
+Your website uses the Next.js App Router, which organizes pages and layouts based on file system routing.
+
+*   **`src/app/layout.tsx` (Root Layout):** This file defines the root HTML structure (`<html>`, `<body>`), global styles (`globals.css`), and common UI elements like the `Header` (containing navigation and social links) and `Footer`. It wraps all other pages, ensuring a consistent look and feel across the entire site. The `MainLayoutContent` component is used here to wrap the `children` (which are the individual pages), providing a consistent main content area.
+*   **`src/app/page.tsx` (Home Page):** This is the entry point for your website (`/`).
+*   **`src/app/[page-name]/page.tsx`:** Each subdirectory under `src/app/` (e.g., `about`, `experience`) represents a distinct route, and the `page.tsx` file within it defines the content for that specific route.
+
+---
+
+### Page-by-Page Breakdown:
+
+#### 1. `src/app/page.tsx` (Home Page)
+
+*   **Purpose:** Serves as the landing page, providing a brief introduction and navigation links to other sections of the portfolio.
+*   **Structure:**
+    *   It directly renders a `div` with introductory text.
+    *   It imports `navItems` from its own file, which is an array of objects defining the links, titles, and descriptions for the navigation cards.
+    *   It uses the `NavigationCard` component to dynamically render a grid of clickable cards, each leading to a different section of the website.
+*   **Key Components Used:**
+    *   `NavigationCard`: A reusable component that displays a clickable card with a title and description, linking to a specific route.
+*   **How it fits:** This page's content is rendered within the `MainLayoutContent` component defined in `layout.tsx`, which provides the profile image, name, and overall main section styling.
+
+#### 2. `src/app/about/page.tsx` (About Me Page)
+
+*   **Purpose:** Provides detailed information about your background, skills, and professional philosophy.
+*   **Structure:**
+    *   It renders a `ContentSection` component, which provides a consistent heading ("About Me") and styling for the main content block.
+    *   Inside `ContentSection`, it contains `div` elements with paragraphs of text, detailing your academic journey, expertise, and passion.
+*   **Key Components Used:**
+    *   `ContentSection`: A reusable component that wraps page content, providing a title and consistent padding/margins.
+*   **How it fits:** Its content is displayed within the `MainLayoutContent` of the root layout.
+
+#### 3. `src/app/experience/page.tsx` (Experience Page)
+
+*   **Purpose:** Showcases your professional work history and roles.
+*   **Structure:**
+    *   It imports `experienceData` from `src/app/data/experience.ts`, which is an array of objects, each representing a work experience entry.
+    *   It renders a `ContentSection` component with the title "Experience".
+    *   It maps over the `experienceData` array, rendering an `ExperienceEntry` component for each item.
+*   **Key Components Used:**
+    *   `ContentSection`: Provides the page title and consistent layout.
+    *   `ExperienceEntry`: A reusable component that displays the details of a single work experience (title, company, date, description).
+*   **How it fits:** Its content is displayed within the `MainLayoutContent` of the root layout.
+
+#### 4. `src/app/hobbies/page.tsx` (Hobbies Page)
+
+*   **Purpose:** Offers a glimpse into your personal interests and hobbies.
+*   **Structure:**
+    *   It imports `hobbiesData` from `src/app/data/hobbies.ts`, an array of objects, each describing a hobby with an image.
+    *   It renders a `ContentSection` component with the title "Hobbies".
+    *   It maps over the `hobbiesData` array, rendering a `HobbyCard` component for each hobby.
+*   **Key Components Used:**
+    *   `ContentSection`: Provides the page title and consistent layout.
+    *   `HobbyCard`: A reusable component that displays a hobby with its title, description, and an image.
+*   **How it fits:** Its content is displayed within the `MainLayoutContent` of the root layout.
+
+#### 5. `src/app/projects/page.tsx` (Projects Page)
+
+*   **Purpose:** Presents a portfolio of your data science and software development projects.
+*   **Structure:**
+    *   It imports `projectsData` from `src/app/data/projects.ts`, an array of objects, each representing a project.
+    *   It renders a `ContentSection` component with the title "Projects".
+    *   It maps over the `projectsData` array, rendering a `ProjectCard` component for each project.
+*   **Key Components Used:**
+    *   `ContentSection`: Provides the page title and consistent layout.
+    *   `ProjectCard`: A reusable component that displays a project with its title, description, image, and a list of tags.
+*   **How it fits:** Its content is displayed within the `MainLayoutContent` of the root layout.
+
+#### 6. `src/app/contact/page.tsx` (Contact Page)
+
+*   **Purpose:** Provides a form for visitors to get in touch with you.
+*   **Structure:**
+    *   It renders a `ContentSection` component with the title "Contact Me".
+    *   Inside `ContentSection`, it contains a `form` element with `label` and `input`/`textarea` fields for name, email, and message, along with a submit button.
+*   **Key Components Used:**
+    *   `ContentSection`: Provides the page title and consistent layout.
+*   **How it fits:** Its content is displayed within the `MainLayoutContent` of the root layout.
+
+---
+
+This modular and component-based approach makes the website highly maintainable and scalable. Each page focuses on its specific content, while shared elements and data are managed centrally.

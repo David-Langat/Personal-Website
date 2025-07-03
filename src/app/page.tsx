@@ -31,6 +31,17 @@ export default function Home() {
           <nav className="hidden md:flex gap-6 text-sm font-medium">
             {/* Navigation links will go here */}
           </nav>
+          <div className="flex justify-center gap-4">
+            <a href="https://www.linkedin.com/in/david-langat-data-science" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
+              <FaLinkedinIn size={24} />
+            </a>
+            <a href="https://github.com/David-Langat" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
+              <FaGithub size={24} />
+            </a>
+            <a href="https://www.kaggle.com/davidlangatkirui" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
+              <FaKaggle size={24} />
+            </a>
+          </div>
         </div>
       </header>
       <main className="flex-1 flex flex-col items-center pt-32 p-4">
@@ -56,17 +67,6 @@ export default function Home() {
           <div className="text-center mt-[-40px] text-xl md:text-2xl text-foreground fade-in-message">
             <p>Welcome to my personal portfolio.</p>
             <p>Explore my work and journey in Data Science and Software Development.</p>
-            <div className="flex justify-center gap-6 mt-8">
-              <a href="https://www.linkedin.com/in/david-langat-data-science" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-                <FaLinkedinIn size={30} />
-              </a>
-              <a href="https://github.com/David-Langat" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-                <FaGithub size={30} />
-              </a>
-              <a href="https://www.kaggle.com/davidlangatkirui" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-300">
-                <FaKaggle size={30} />
-              </a>
-            </div>
           </div>
         )}
       </main>

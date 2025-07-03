@@ -12,7 +12,7 @@ import { FaBars } from 'react-icons/fa';
 const inter = Inter({ subsets: ['latin'] });
 
 const navLinks = [
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'About Me' },
   { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
   { href: '/hobbies', label: 'Hobbies' },
@@ -26,6 +26,9 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+
+  // Determine the current page's title based on the pathname
+  const currentPageTitle = navLinks.find(link => link.href === pathname)?.label || '';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -77,7 +80,10 @@ export default function RootLayout({
               </div>
             )}
           </header>
-          <MainLayoutContent>{children}</MainLayoutContent>
+          {/* Pass isHomePage and currentPageTitle to MainLayoutContent */}
+          <MainLayoutContent isHomePage={isHomePage} pageTitle={currentPageTitle}>
+            {children}
+          </MainLayoutContent>
           <footer className="bg-secondary py-6">
             <div className="container text-center text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} David Langat. All rights reserved.

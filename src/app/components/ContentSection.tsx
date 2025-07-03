@@ -10,7 +10,7 @@ interface ContentSectionProps {
 
 function ContentSection({ title, children, className }: ContentSectionProps) {
   return (
-    <section className={`flex flex-col items-center p-4 w-full ${className}`}>
+    <section className={`flex flex-col items-center p-4 w-full mt-8 ${className}`}>
       {title && <h1 className="text-4xl font-bold text-foreground mb-8">{title}</h1>}
       {children}
     </section>

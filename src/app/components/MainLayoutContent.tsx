@@ -16,9 +16,9 @@ export default function MainLayoutContent({ children, isHomePage, pageTitle }: M
   // const isHomePage = pathname === '/';
 
   return (
-    <main className="flex-1 flex flex-col items-center pt-20 sm:pt-32 p-4">
+    <main className="flex-1 flex flex-col items-center pt-4 sm:pt-8 p-4">
       <div
-        className="flex flex-col items-center"
+        className="flex flex-col items-center mb-8"
         style={{ position: 'relative', zIndex: 10 }}
       >
         {/* Conditionally render profile image and name on homepage, or page title on other pages */}

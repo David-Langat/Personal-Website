@@ -17,7 +17,7 @@ export default function Home() {
       <p>Welcome to my personal portfolio.</p>
       <p>Explore my work and journey in Data Science and Software Development.</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mt-6">
         {navItems.map((item) => (
           <NavigationCard key={item.href} {...item} />
         ))}

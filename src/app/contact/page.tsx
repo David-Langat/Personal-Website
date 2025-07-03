@@ -4,7 +4,7 @@ import ContentSection from '../components/ContentSection';
 
 export default function ContactPage() {
   return (
-    <ContentSection title="Contact Me" className="max-w-md mx-auto">
+    <ContentSection className="max-w-md mx-auto">
       <form className="w-full space-y-4">
         <div>
           <label htmlFor="name" className="block text-foreground text-lg font-medium mb-1">Name</label>

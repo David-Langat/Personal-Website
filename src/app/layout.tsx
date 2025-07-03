@@ -43,13 +43,16 @@ export default function RootLayout({
                   />
                 )}
               </Link>
-              <nav className="hidden md:flex gap-6 text-sm font-medium">
-                {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className={`hover:text-primary transition-colors duration-300 ${pathname === link.href ? 'text-primary' : 'text-foreground'}`}>
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
+              {/* Conditionally render navigation links: hidden on homepage, visible on other pages */}
+              {!isHomePage && (
+                <nav className="hidden md:flex gap-6 text-sm font-medium">
+                  {navLinks.map((link) => (
+                    <Link key={link.href} href={link.href} className={`hover:text-primary transition-colors duration-300 ${pathname === link.href ? 'text-primary' : 'text-foreground'}`}>
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+              )}
               <div className="md:hidden">
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-foreground focus:outline-none">
                   <FaBars size={24} />

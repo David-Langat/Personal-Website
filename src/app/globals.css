@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #EAF7FA; /* Lighter Blue Background */
+  --foreground: #33302E; /* Nude Black Text Color */
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --card: #ffffff;
+  --card-foreground: #18181b;
+  --border: #e4e4e7;
+  --nude-lavender: #8A6F9A; /* Darker Nude Lavender for name */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #09090b;
+    --foreground: #fafafa;
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
+    --secondary: #18181b;
+    --secondary-foreground: #fafafa;
+    --card: #09090b;
+    --card-foreground: #fafafa;
+    --border: #27272a;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); } /* Increased translateY for smoother initial slide */
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-80px); } /* Increased translateY to move name higher */
+}
+
+.slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes fadeInMessage {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-message {
+  animation: fadeInMessage 1s ease-out forwards;
+}

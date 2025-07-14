@@ -9,10 +9,10 @@ interface GitHubRepo {
   name: string;
   description: string | null;
   html_url: string;
-  languages: string[];
   owner: {
     login: string;
   };
+  topics: string[];
 }
 
 async function fetchGitHubProjects(username: string): Promise<GitHubRepo[]> {
@@ -20,16 +20,7 @@ async function fetchGitHubProjects(username: string): Promise<GitHubRepo[]> {
   if (!response.ok) {
     throw new Error('Failed to fetch projects');
   }
-  const repos: any[] = await response.json();
-
-  const projects = await Promise.all(
-    repos.map(async (repo) => {
-      const langResponse = await fetch(repo.languages_url);
-      const languages = langResponse.ok ? Object.keys(await langResponse.json()) : [];
-      return { ...repo, languages };
-    })
-  );
-
+  const projects: GitHubRepo[] = await response.json();
   return projects;
 }
 
@@ -70,7 +61,7 @@ export default function ProjectsPage() {
             title={project.name}
             description={project.description}
             image={`https://opengraph.githubassets.com/1/${project.owner.login}/${project.name}`}
-            tags={project.languages}
+            tags={project.topics}
             url={project.html_url}
           />
         ))}

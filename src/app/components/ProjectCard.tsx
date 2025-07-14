@@ -16,7 +16,7 @@ function ProjectCard({ title, description, image, tags, url }: ProjectCardProps)
     setImageSrc('/file.svg'); // Path to your fallback image
   };
 
-  const cardContent = (
+  return (
     <div className="rounded-lg shadow-lg bg-white/10 backdrop-blur-sm overflow-hidden h-full flex flex-col">
       <img 
         src={imageSrc}
@@ -25,26 +25,25 @@ function ProjectCard({ title, description, image, tags, url }: ProjectCardProps)
         onError={handleImageError} 
       />
       <div className="p-6 flex flex-col flex-grow">
-        <h2 className="text-2xl font-bold text-primary">{title}</h2>
-        <p className="text-lg text-foreground mt-2 flex-grow">
+        <a href={url} target="_blank" rel="noopener noreferrer" className="no-underline">
+          <h2 className="text-2xl font-bold text-primary hover:underline">{title}</h2>
+        </a>
+        <p className="text-lg text-foreground mt-2 mb-2">
           {description || 'No description available.'}
         </p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag, tagIndex) => (
-            <span key={tagIndex} className="px-2 py-1 bg-primary/20 text-primary rounded-full text-sm">
-              {tag}
-            </span>
-          ))}
-        </div>
+        {tags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-2 p-2 rounded bg-white/5">
+            {tags.map((tag, tagIndex) => (
+              <span key={tagIndex} className="px-2 py-1 bg-primary/20 text-primary rounded-full text-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
-  );
-
-  return (
-    <a href={url} target="_blank" rel="noopener noreferrer" className="no-underline">
-      {cardContent}
-    </a>
   );
 }
 
 export default React.memo(ProjectCard);
+

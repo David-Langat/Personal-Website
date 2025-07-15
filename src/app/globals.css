@@ -44,6 +44,42 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Swiper custom styles */
+.mySwiper {
+  max-width: 100%; /* Ensure Swiper does not exceed its parent's width */
+}
 
+.swiper-button-next, .swiper-button-prev {
+  color: var(--primary) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  position: absolute !important; /* Ensure absolute positioning */
+  z-index: 10; /* Ensure buttons are above content */
+  cursor: pointer;
+  opacity: 0.3; /* Make them semi-transparent */
+  transition: opacity 0.3s ease; /* Smooth transition for hover */
+}
 
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  opacity: 1; /* Fully opaque on hover */
+}
 
+.swiper-button-prev {
+  left: 0px !important; /* Position at the edge of the padding */
+  transform: translateY(-50%) translateX(-100%) !important; /* Push outward */
+}
+
+.swiper-button-next {
+  right: 0px !important; /* Position at the edge of the padding */
+  transform: translateY(-50%) translateX(100%) !important; /* Push outward */
+}
+
+.swiper-pagination-bullet {
+  background: var(--primary) !important; /* Changed to primary color */
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary) !important;
+  opacity: 1 !important;
+}

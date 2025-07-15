@@ -59,9 +59,9 @@ Your website uses the Next.js App Router, which organizes pages and layouts base
 
 *   **Purpose:** Presents a portfolio of your data science and software development projects.
 *   **Structure:**
-    *   It imports `projectsData` from `src/app/data/projects.ts`, an array of objects, each representing a project.
+    *   It fetches project data directly from the GitHub API using the `fetchGitHubProjects` function.
     *   It renders a `ContentSection` component with the title "Projects".
-    *   It maps over the `projectsData` array, rendering a `ProjectCard` component for each project.
+    *   It maps over the fetched projects data, rendering a `ProjectCard` component for each project.
 *   **Key Components Used:**
     *   `ContentSection`: Provides the page title and consistent layout.
     *   `ProjectCard`: A reusable component that displays a project with its title, description, image, and a list of tags.

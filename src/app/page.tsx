@@ -6,7 +6,7 @@ import NavigationCard from './components/NavigationCard';
 const navItems = [
   { href: '/about', title: 'About Me', description: 'Learn more about my background and skills.' },
   { href: '/experience', title: 'Experience', description: 'My professional journey and roles.' },
-  { href: '/projects', title: 'Projects', description: 'Showcase of my data science and software projects.' },
+  { href: '/projects', title: 'Projects', description: 'Showcase of my data science and software development projects.' },
   { href: '/hobbies', title: 'Hobbies', description: 'A glimpse into my personal interests.' },
   { href: '/contact', title: 'Contact', description: 'Get in touch with me.' },
 ];

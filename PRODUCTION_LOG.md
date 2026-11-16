@@ -17,11 +17,22 @@ This document tracks the end-to-end production process, milestones, and architec
 ---
 
 ### Milestone 2: Stitch Design Ingestion
-* **Status:** Pending export placement
+* **Status:** Completed
+* **Summary:**
+  * Ingested `code.html` (1,278 lines responsive portfolio prototype with Bento layout, Apple frosted glass header, project filters, carousel, and contact form).
+  * Ingested `DESIGN.md` (Precision Algorithmic Portfolio design system, typography scales for Geist/Inter/JetBrains Mono, colors, elevations, and component guidelines).
+  * Ingested `screen.png` (high-fidelity desktop visual baseline).
+  * Committed raw artifacts to Git history (`9150173`).
+
+---
+
+### Milestone 3: Project Architecture & Framework Setup
+* **Status:** In Progress
 * **Objectives:**
-  * Ingest exported Stitch files (HTML, CSS/Tailwind, assets, images).
-  * Audit layout structure, typography, color palette, and reusable design tokens.
-  * Plan framework setup (e.g. Next.js App Router / React / Vite).
+  * Choose target architecture (Modern Next.js 15 App Router / Vite React SPA / Static HTML).
+  * Configure build tools, Tailwind CSS, TypeScript, and asset pipeline.
+  * Personalize content (David Langat: AI/ML Engineering & IT Infrastructure, GitHub repositories, contact channels).
+  * Break monolithic prototype into modular, maintainable components.
 
 ---
 

@@ -57,3 +57,20 @@ This document tracks the end-to-end production process, milestones, and architec
   * Implemented client-side live fetcher connecting to `https://api.github.com/users/David-Langat/repos?sort=updated&per_page=30`.
   * Designed dual-layer architecture: pre-rendered fallback cards for instant zero-flicker loading, enriched dynamically with live stars, fork metrics, and relative timestamps (`timeAgo()`).
   * Dynamic category filters (All, Python, ML & IR, C# & Systems, Web & Data) auto-sync with fetched repositories.
+
+---
+
+### Milestone 6: Dynamic Kaggle Competitions & Notebook Showcase
+* **Status:** Completed
+* **Summary:**
+  * Sourced real competitive modeling projects from local and remote `David-Langat/Kaggle` repository under `playground_series/`.
+  * Pre-rendered all 7 verified competitions:
+    * `predicting_airline_satisfaction` (`predicting_airline_satisfaction.ipynb`)
+    * `predicting_credit_card_fraud` (`predicting_credit_card_fraud.ipynb`)
+    * `predicting_electric_vehicle_purchase` (`predicting_electric_vehicle_purchase.ipynb`)
+    * `predicting_irrigation_need` (`lightgbm-version-4-0.ipynb`, `irrigation-need.ipynb`)
+    * `predicting_stellar_class` (`predicting_stellar_class.ipynb` v1, v2)
+    * `predictining_student_health_risk` (`predicting_student_health_risk.ipynb`)
+    * `predicting_smartphone_addiction` (`predicting_smartphone_addiction.ipynb`)
+  * Integrated dynamic GitHub API endpoint (`/repos/David-Langat/Kaggle/contents/playground_series`) with fallback caching.
+  * Added direct navigation to both the repository competition folder and the rendered `.ipynb` notebook file on GitHub.

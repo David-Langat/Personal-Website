@@ -41,9 +41,19 @@ This document tracks the end-to-end production process, milestones, and architec
 ---
 
 ### Milestone 4: Zero-Cost GitHub Pages Deployment Pipeline
-* **Status:** Ready for Push
+* **Status:** Completed
 * **Summary:**
   * Created `.nojekyll` to bypass Jekyll processing on GitHub Pages.
   * Configured official GitHub Actions workflow `.github/workflows/deploy.yml` with automated deployment triggers on `main`.
   * Staging URL configured: `https://david-langat.github.io/Personal-Website/`.
   * Pre-configured for custom domain integration (`davidlangat.dev`).
+
+---
+
+### Milestone 5: Dynamic GitHub Repository Integration
+* **Status:** Completed
+* **Summary:**
+  * Replaced static template cards with real GitHub repositories (`Information_Retrieval`, `Maktaba`, `GameFramework`, `Machine-learning-for-NLP`, `Machine-Learning-at-Scale`, `Stream`, `Personal-Website`).
+  * Implemented client-side live fetcher connecting to `https://api.github.com/users/David-Langat/repos?sort=updated&per_page=30`.
+  * Designed dual-layer architecture: pre-rendered fallback cards for instant zero-flicker loading, enriched dynamically with live stars, fork metrics, and relative timestamps (`timeAgo()`).
+  * Dynamic category filters (All, Python, ML & IR, C# & Systems, Web & Data) auto-sync with fetched repositories.

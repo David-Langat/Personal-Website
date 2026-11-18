@@ -26,27 +26,24 @@ This document tracks the end-to-end production process, milestones, and architec
 
 ---
 
-### Milestone 3: Project Architecture & Framework Setup
-* **Status:** In Progress
-* **Objectives:**
-  * Choose target architecture (Modern Next.js 15 App Router / Vite React SPA / Static HTML).
-  * Configure build tools, Tailwind CSS, TypeScript, and asset pipeline.
-  * Personalize content (David Langat: AI/ML Engineering & IT Infrastructure, GitHub repositories, contact channels).
-  * Break monolithic prototype into modular, maintainable components.
+### Milestone 3: Project Architecture & Personalization
+* **Status:** Completed
+* **Summary:**
+  * Refactored Stitch prototype into a high-performance, responsive single-page application at `index.html`.
+  * Preserved full **Precision Algorithmic Portfolio** design system (Apple frosted glass header, Bento grid metrics, horizontal snap carousels, category filtering tabs, technical skills matrix, and interactive terminal contact form).
+  * Extracted portrait asset `assets/images/personal.jpg` from legacy branch.
+  * Personalized identity for **David Langat**:
+    * GitHub links pointing to `https://github.com/David-Langat`.
+    * Focused title: *Machine Learning Engineer & Systems Architect*.
+    * Blended track record combining academic graduate data science background with enterprise IT infrastructure experience.
+  * Configured relative paths for smooth hosting on both root domains and subpaths (`/Personal-Website/`).
 
 ---
 
-### Milestone 3: Componentization & Architecture
-* **Status:** Queued
-* **Objectives:**
-  * Break down Stitch templates into atomic, reusable components (Navigation, Hero, Projects, Experience, Contact).
-  * Set up routing and layout hierarchy.
-  * Optimize static assets and responsive views.
-
----
-
-### Milestone 4: Production Verification & Deployment
-* **Status:** Queued
-* **Objectives:**
-  * Verify cross-device responsiveness, accessibility, and SEO metadata.
-  * Configure build and deployment pipeline (e.g. Vercel / GitHub Pages).
+### Milestone 4: Zero-Cost GitHub Pages Deployment Pipeline
+* **Status:** Ready for Push
+* **Summary:**
+  * Created `.nojekyll` to bypass Jekyll processing on GitHub Pages.
+  * Configured official GitHub Actions workflow `.github/workflows/deploy.yml` with automated deployment triggers on `main`.
+  * Staging URL configured: `https://david-langat.github.io/Personal-Website/`.
+  * Pre-configured for custom domain integration (`davidlangat.dev`).

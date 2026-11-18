@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>David Langat | Machine Learning Engineer &amp; Systems Architect</title>
+  <meta name="description" content="Portfolio of David Langat — Machine Learning Engineer and Systems Architect specializing in distributed deep learning, production ML infrastructure, and predictive modeling.">
+  <meta name="author" content="David Langat">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="David Langat | Machine Learning Engineer &amp; Systems Architect">
+  <meta property="og:description" content="High-throughput distributed deep learning pipelines, competitive algorithms, and enterprise ML systems architecture.">
+  <meta property="og:image" content="./assets/images/personal.jpg">
+
+  <!-- Fonts: Google Fonts (Geist, Inter, JetBrains Mono) & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with configuration -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "apple-blue": "#0071e3",
+            "apple-blue-hover": "#0077ED",
+            "apple-gray": "#f5f5f7",
+            "apple-dark": "#1d1d1f",
+            "apple-subtext": "#6e6e73",
+            "surface-border": "rgba(0, 0, 0, 0.08)",
+            "on-background": "#1d1d1f",
+            "surface": "#ffffff",
+            "background": "#fbfbfd"
+          },
+          borderRadius: {
+            "DEFAULT": "0.375rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "4xl": "2rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "sans": ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+            "display": ["Geist", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+            "mono": ["JetBrains Mono", "SF Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body {
+        overscroll-behavior: none;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+        letter-spacing: -0.011em;
+      }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .apple-card-hover {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+    .apple-card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.06), 0 0 1px 1px rgba(0,0,0,0.04);
+    }
+
+    .apple-glass {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+    }
+  </style>
+</head>
+
+<body class="bg-[#fbfbfd] text-[#1d1d1f] antialiased selection:bg-[#0071e3]/20 selection:text-[#0071e3]">
+
+  <!-- Apple Frosted Translucent Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 apple-glass border-b border-black/[0.06] transition-all duration-300">
+    <div class="h-12 md:h-14 max-w-6xl mx-auto px-6 lg:px-8 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-2 group transition-opacity hover:opacity-80" href="#">
+          <span class="w-7 h-7 rounded-lg bg-[#0071e3] text-white flex items-center justify-center font-display font-bold text-xs shadow-sm">
+            DL
+          </span>
+          <span class="font-display font-semibold text-sm tracking-tight text-[#1d1d1f]">David Langat</span>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-7 text-[13px] font-normal tracking-normal text-[#6e6e73]">
+        <a class="hover:text-[#1d1d1f] transition-colors" href="#about">Overview</a>
+        <a class="hover:text-[#1d1d1f] transition-colors" href="#projects">Repositories</a>
+        <a class="hover:text-[#1d1d1f] transition-colors" href="#competitions">Benchmarks</a>
+        <a class="hover:text-[#1d1d1f] transition-colors" href="#skills">Tech Matrix</a>
+        <a class="hover:text-[#1d1d1f] transition-colors" href="#experience">Experience</a>
+        <a class="hover:text-[#1d1d1f] transition-colors" href="#contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1">
+          <a class="w-8 h-8 rounded-full flex items-center justify-center text-[#6e6e73] hover:text-[#1d1d1f] hover:bg-black/[0.04] transition-all" href="https://github.com/David-Langat" rel="noreferrer" target="_blank" title="GitHub Profile">
+            <span class="material-symbols-outlined text-[18px]">code</span>
+          </a>
+          <a class="w-8 h-8 rounded-full flex items-center justify-center text-[#6e6e73] hover:text-[#1d1d1f] hover:bg-black/[0.04] transition-all" href="https://kaggle.com" rel="noreferrer" target="_blank" title="Kaggle">
+            <span class="material-symbols-outlined text-[18px]">analytics</span>
+          </a>
+          <a class="w-8 h-8 rounded-full flex items-center justify-center text-[#6e6e73] hover:text-[#1d1d1f] hover:bg-black/[0.04] transition-all" href="#contact" title="Direct Channel">
+            <span class="material-symbols-outlined text-[18px]">share</span>
+          </a>
+        </div>
+        <a class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#0071e3] hover:bg-[#0077ED] text-white text-xs font-medium rounded-full transition-all shadow-[0_1px_2px_rgba(0,0,0,0.1)] active:scale-95" href="#contact">
+          <span>Get in Touch</span>
+          <span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+        </a>
+        <img alt="David Langat" class="w-7 h-7 rounded-full object-cover ring-1 ring-black/10" src="./assets/images/personal.jpg">
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-14 min-h-[calc(100vh-160px)]">
+    <div class="flex flex-col w-full">
+
+      <!-- 1. HERO SECTION (#about) -->
+      <section class="w-full max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-24 md:pt-24 md:pb-28" id="about">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          <!-- Hero Left Column -->
+          <div class="lg:col-span-7 flex flex-col items-start gap-6">
+            <!-- Status Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-black/[0.08] shadow-[0_2px_8px_rgba(0,0,0,0.03)] backdrop-blur-md">
+              <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0071e3] opacity-60"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#0071e3]"></span>
+              </span>
+              <span class="text-xs font-medium text-[#1d1d1f] tracking-tight">Open to ML Engineering &amp; Systems Architecture</span>
+            </div>
+
+            <!-- Main Title & Role -->
+            <div class="flex flex-col gap-3">
+              <h1 class="font-display text-4xl sm:text-6xl lg:text-[64px] font-extrabold text-[#1d1d1f] tracking-[-0.03em] leading-[1.06]">
+                David Langat
+              </h1>
+              <p class="font-display text-xl sm:text-2xl font-medium tracking-tight text-[#6e6e73]">
+                Machine Learning Engineer &amp; Systems Architect
+              </p>
+            </div>
+
+            <!-- Summary Copy -->
+            <p class="text-base sm:text-lg text-[#6e6e73] font-normal leading-relaxed max-w-xl">
+              Specializing in scalable distributed deep learning pipelines, high-throughput cloud inference, and competitive predictive modeling. Bridging mathematical algorithms with resilient enterprise infrastructure.
+            </p>
+
+            <!-- Bento Metrics Row -->
+            <div class="w-full grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+              <div class="bg-white/90 border border-black/[0.06] rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.04)] transition-all">
+                <span class="font-display text-3xl font-bold text-[#1d1d1f] tracking-tight">15<span class="text-[#0071e3]">+</span></span>
+                <span class="text-xs font-medium text-[#86868b] mt-1">Production Models</span>
+              </div>
+              <div class="bg-white/90 border border-black/[0.06] rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.04)] transition-all">
+                <span class="font-display text-3xl font-bold text-[#1d1d1f] tracking-tight">&lt;15ms</span>
+                <span class="text-xs font-medium text-[#86868b] mt-1">P99 Latency</span>
+              </div>
+              <div class="bg-white/90 border border-black/[0.06] rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.04)] transition-all">
+                <div class="flex items-center gap-1">
+                  <span class="font-display text-3xl font-bold text-[#1d1d1f] tracking-tight">Top Tier</span>
+                  <span class="material-symbols-outlined text-amber-500 text-[20px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+                </div>
+                <span class="text-xs font-medium text-[#86868b] mt-1">Algorithmic Benchmarks</span>
+              </div>
+              <div class="bg-white/90 border border-black/[0.06] rounded-2xl p-4 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.04)] transition-all">
+                <span class="font-display text-3xl font-bold text-[#0071e3] tracking-tight">99.9%</span>
+                <span class="text-xs font-medium text-[#86868b] mt-1">System Reliability</span>
+              </div>
+            </div>
+
+            <!-- Apple Pill Action Buttons -->
+            <div class="flex flex-wrap items-center gap-3 pt-3">
+              <a class="px-6 py-3 rounded-full bg-[#0071e3] hover:bg-[#0077ED] text-white font-medium text-sm transition-all shadow-[0_2px_8px_rgba(0,113,227,0.3)] hover:shadow-[0_4px_16px_rgba(0,113,227,0.4)] active:scale-98 flex items-center gap-2" href="#projects">
+                <span>Explore Repositories</span>
+                <span class="material-symbols-outlined text-[17px]">arrow_forward</span>
+              </a>
+              <a class="px-6 py-3 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] font-medium text-sm transition-all border border-black/[0.04] active:scale-98 flex items-center gap-2" href="#competitions">
+                <span>View Benchmarks</span>
+                <span class="material-symbols-outlined text-[17px] text-[#6e6e73]">sports_score</span>
+              </a>
+              <a class="px-5 py-3 rounded-full hover:bg-black/[0.04] text-[#1d1d1f] font-medium text-sm transition-all flex items-center gap-1.5" href="#contact">
+                <span>Contact</span>
+                <span class="material-symbols-outlined text-[16px] text-[#86868b]">chevron_right</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Right Column: Portrait Capsule -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-end">
+            <div class="relative w-full max-w-[360px] aspect-[4/4.5] rounded-3xl p-2 bg-gradient-to-b from-white to-[#f5f5f7] border border-black/[0.08] shadow-[0_16px_40px_rgba(0,0,0,0.06)]">
+              <div class="w-full h-full rounded-[20px] overflow-hidden bg-white relative">
+                <img alt="David Langat" class="w-full h-full object-cover object-top transition-transform duration-700 ease-out hover:scale-105" src="./assets/images/personal.jpg">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                <!-- Frosted Card Overlay -->
+                <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-2xl bg-white/85 backdrop-blur-xl border border-white/60 shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-between">
+                  <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-full bg-[#f5f5f7] border border-black/[0.05] flex items-center justify-center text-[#0071e3]">
+                      <span class="material-symbols-outlined text-[18px]">neurology</span>
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="text-xs font-semibold text-[#1d1d1f] tracking-tight">PyTorch • Ray • MLOps</span>
+                      <span class="text-[11px] text-[#86868b]">Distributed Core Systems</span>
+                    </div>
+                  </div>
+                  <span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded-full bg-black/[0.05] text-[#1d1d1f]">v2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 2. FEATURED GITHUB PROJECTS (#projects) -->
+      <section class="w-full max-w-6xl mx-auto px-6 lg:px-8 py-20 border-t border-black/[0.06]" id="projects">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div class="flex flex-col gap-2">
+            <span class="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">Engineered Systems</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-[#1d1d1f] tracking-tight">Featured Repositories &amp; Infrastructure</h2>
+            <p class="text-base text-[#6e6e73] max-w-xl font-normal">
+              Distributed ML engines, generative AI inference pipelines, and production-ready MLOps infrastructure.
+            </p>
+          </div>
+
+          <!-- Category Filter Tabs & Navigation -->
+          <div class="flex items-center gap-3">
+            <div class="flex flex-wrap items-center gap-1.5 p-1 bg-[#f5f5f7] rounded-full border border-black/[0.04]" id="repoFilters">
+              <button class="px-4 py-1.5 rounded-full bg-white text-[#1d1d1f] text-xs font-semibold shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-all" data-filter="all">All (6)</button>
+              <button class="px-4 py-1.5 rounded-full text-[#6e6e73] hover:text-[#1d1d1f] text-xs font-medium transition-all" data-filter="mlops">MLOps</button>
+              <button class="px-4 py-1.5 rounded-full text-[#6e6e73] hover:text-[#1d1d1f] text-xs font-medium transition-all" data-filter="distributed">Distributed</button>
+              <button class="px-4 py-1.5 rounded-full text-[#6e6e73] hover:text-[#1d1d1f] text-xs font-medium transition-all" data-filter="vision">Vision</button>
+            </div>
+            <div class="flex items-center gap-2" id="repoNavButtons">
+              <button aria-label="Previous repository" class="w-9 h-9 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] flex items-center justify-center transition-all border border-black/[0.04] shadow-sm active:scale-95 disabled:opacity-40" onclick="document.getElementById('repoGrid').scrollBy({left: -440, behavior: 'smooth'})">
+                <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+              </button>
+              <button aria-label="Next repository" class="w-9 h-9 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] flex items-center justify-center transition-all border border-black/[0.04] shadow-sm active:scale-95 disabled:opacity-40" onclick="document.getElementById('repoGrid').scrollBy({left: 440, behavior: 'smooth'})">
+                <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repo Cards Grid -->
+        <div class="flex gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" id="repoGrid">
+          
+          <!-- Project 1 -->
+          <div class="project-card apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-7 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[420px] max-w-[420px] flex-shrink-0 snap-start" data-category="distributed mlops">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                    <span class="material-symbols-outlined text-[22px]">hub</span>
+                  </div>
+                  <div>
+                    <h3 class="font-display text-xl font-bold text-[#1d1d1f] tracking-tight hover:text-[#0071e3] transition-colors cursor-pointer">TensorStream-v2</h3>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="inline-block w-2 h-2 rounded-full bg-[#0071e3]"></span>
+                      <span class="text-xs text-[#86868b] font-medium">Rust • Python</span>
+                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#f5f5f7] text-[#6e6e73]">MIT</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 px-3 py-1 rounded-full bg-[#f5f5f7] text-xs font-medium text-[#1d1d1f]">
+                  <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span>1,840</span>
+                </div>
+              </div>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                High-throughput distributed tensor pipeline for real-time video stream embeddings with PyTorch and Ray. Ultra-low latency processing under 12ms at 4k resolution.
+              </p>
+              <div class="p-3.5 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.03] flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#86868b] font-medium">Commit Activity</span>
+                  <span class="text-xs font-semibold text-[#1d1d1f]">98 commits / last 30d</span>
+                </div>
+                <svg class="w-28 h-5 text-[#0071e3]" fill="none" viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 18 L15 14 L30 19 L45 8 L60 12 L75 5 L90 14 L105 3 L120 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">PyTorch</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Ray Cluster</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Rust FFI</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Triton</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-black/[0.04]">
+              <div class="flex items-center gap-4 text-xs text-[#86868b]">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">fork_right</span> 290 forks</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span> 2d ago</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a class="w-8 h-8 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] flex items-center justify-center transition-colors" href="https://github.com/David-Langat" rel="noreferrer" target="_blank" title="Repository">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                </a>
+                <a class="px-3.5 py-1.5 rounded-full bg-[#0071e3]/10 hover:bg-[#0071e3]/15 text-[#0071e3] text-xs font-semibold transition-colors flex items-center gap-1" href="https://github.com/David-Langat" target="_blank">
+                  <span>View Project</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-7 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[420px] max-w-[420px] flex-shrink-0 snap-start" data-category="mlops">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                    <span class="material-symbols-outlined text-[22px]">layers</span>
+                  </div>
+                  <div>
+                    <h3 class="font-display text-xl font-bold text-[#1d1d1f] tracking-tight hover:text-[#0071e3] transition-colors cursor-pointer">KaggleAutoEnsemble</h3>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="inline-block w-2 h-2 rounded-full bg-[#0071e3]"></span>
+                      <span class="text-xs text-[#86868b] font-medium">Python</span>
+                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#f5f5f7] text-[#6e6e73]">Apache-2.0</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 px-3 py-1 rounded-full bg-[#f5f5f7] text-xs font-medium text-[#1d1d1f]">
+                  <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span>920</span>
+                </div>
+              </div>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                Automated stacking and Bayesian blending toolkit tuned for competitive tabular and multi-modal competitions. Integrates automated feature importance prune rounds and calibration.
+              </p>
+              <div class="p-3.5 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.03] flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#86868b] font-medium">Commit Activity</span>
+                  <span class="text-xs font-semibold text-[#1d1d1f]">44 commits / last 30d</span>
+                </div>
+                <svg class="w-28 h-5 text-[#0071e3]" fill="none" viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 15 L20 12 L35 18 L50 9 L70 14 L85 6 L100 8 L120 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">LightGBM</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">XGBoost</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Optuna</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Polars</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-black/[0.04]">
+              <div class="flex items-center gap-4 text-xs text-[#86868b]">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">fork_right</span> 165 forks</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span> 1w ago</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a class="w-8 h-8 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] flex items-center justify-center transition-colors" href="https://github.com/David-Langat" rel="noreferrer" target="_blank" title="Repository">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                </a>
+                <a class="px-3.5 py-1.5 rounded-full bg-[#0071e3]/10 hover:bg-[#0071e3]/15 text-[#0071e3] text-xs font-semibold transition-colors flex items-center gap-1" href="https://github.com/David-Langat" target="_blank">
+                  <span>View Project</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-7 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[420px] max-w-[420px] flex-shrink-0 snap-start" data-category="vision">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                    <span class="material-symbols-outlined text-[22px]">visibility</span>
+                  </div>
+                  <div>
+                    <h3 class="font-display text-xl font-bold text-[#1d1d1f] tracking-tight hover:text-[#0071e3] transition-colors cursor-pointer">OmniEmbed-Vision</h3>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="inline-block w-2 h-2 rounded-full bg-[#0071e3]"></span>
+                      <span class="text-xs text-[#86868b] font-medium">CUDA • C++</span>
+                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#f5f5f7] text-[#6e6e73]">MIT</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 px-3 py-1 rounded-full bg-[#f5f5f7] text-xs font-medium text-[#1d1d1f]">
+                  <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span>480</span>
+                </div>
+              </div>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                Self-supervised vision-language contrastive pre-training framework with INT8 quantization support, ONNX dynamic graph exports, and instant sub-millisecond similarity scoring.
+              </p>
+              <div class="p-3.5 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.03] flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#86868b] font-medium">Commit Activity</span>
+                  <span class="text-xs font-semibold text-[#1d1d1f]">61 commits / last 30d</span>
+                </div>
+                <svg class="w-28 h-5 text-[#0071e3]" fill="none" viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 19 L18 16 L36 10 L54 12 L72 7 L90 9 L108 3 L120 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">PyTorch</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">CUDA</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">ONNX</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">FastAPI</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-black/[0.04]">
+              <div class="flex items-center gap-4 text-xs text-[#86868b]">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">fork_right</span> 64 forks</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span> 3w ago</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a class="w-8 h-8 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] flex items-center justify-center transition-colors" href="https://github.com/David-Langat" rel="noreferrer" target="_blank" title="Repository">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                </a>
+                <a class="px-3.5 py-1.5 rounded-full bg-[#0071e3]/10 hover:bg-[#0071e3]/15 text-[#0071e3] text-xs font-semibold transition-colors flex items-center gap-1" href="https://github.com/David-Langat" target="_blank">
+                  <span>View Project</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-7 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[420px] max-w-[420px] flex-shrink-0 snap-start" data-category="distributed mlops">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                    <span class="material-symbols-outlined text-[22px]">cloud_sync</span>
+                  </div>
+                  <div>
+                    <h3 class="font-display text-xl font-bold text-[#1d1d1f] tracking-tight hover:text-[#0071e3] transition-colors cursor-pointer">CloudScale-MLOps</h3>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="inline-block w-2 h-2 rounded-full bg-[#0071e3]"></span>
+                      <span class="text-xs text-[#86868b] font-medium">YAML • Go • K8s</span>
+                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#f5f5f7] text-[#6e6e73]">MIT</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 px-3 py-1 rounded-full bg-[#f5f5f7] text-xs font-medium text-[#1d1d1f]">
+                  <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span>310</span>
+                </div>
+              </div>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                GitOps-driven Kubernetes deployment templates for continuous model evaluation, canary rollouts, automatic data drift monitoring, and rolling zero-downtime checkpoints.
+              </p>
+              <div class="p-3.5 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.03] flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#86868b] font-medium">Commit Activity</span>
+                  <span class="text-xs font-semibold text-[#1d1d1f]">22 commits / last 30d</span>
+                </div>
+                <svg class="w-28 h-5 text-[#0071e3]" fill="none" viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 16 L25 15 L40 19 L60 11 L75 13 L95 8 L120 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Kubernetes</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">ArgoCD</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Prometheus</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Grafana</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-black/[0.04]">
+              <div class="flex items-center gap-4 text-xs text-[#86868b]">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">fork_right</span> 52 forks</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span> 1mo ago</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a class="w-8 h-8 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] flex items-center justify-center transition-colors" href="https://github.com/David-Langat" rel="noreferrer" target="_blank" title="Repository">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                </a>
+                <a class="px-3.5 py-1.5 rounded-full bg-[#0071e3]/10 hover:bg-[#0071e3]/15 text-[#0071e3] text-xs font-semibold transition-colors flex items-center gap-1" href="https://github.com/David-Langat" target="_blank">
+                  <span>View Project</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-7 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[420px] max-w-[420px] flex-shrink-0 snap-start" data-category="distributed">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                    <span class="material-symbols-outlined text-[22px]">memory</span>
+                  </div>
+                  <div>
+                    <h3 class="font-display text-xl font-bold text-[#1d1d1f] tracking-tight hover:text-[#0071e3] transition-colors cursor-pointer">NeuroQuant-vLLM</h3>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="inline-block w-2 h-2 rounded-full bg-[#0071e3]"></span>
+                      <span class="text-xs text-[#86868b] font-medium">CUDA • C++ • Python</span>
+                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#f5f5f7] text-[#6e6e73]">Apache-2.0</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 px-3 py-1 rounded-full bg-[#f5f5f7] text-xs font-medium text-[#1d1d1f]">
+                  <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span>745</span>
+                </div>
+              </div>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                4-bit KV-cache quantization engine integrated into vLLM PagedAttention kernels. Increases concurrency 3.2x on A100/H100 clusters with zero perplexity loss.
+              </p>
+              <div class="p-3.5 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.03] flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#86868b] font-medium">Commit Activity</span>
+                  <span class="text-xs font-semibold text-[#1d1d1f]">53 commits / last 30d</span>
+                </div>
+                <svg class="w-28 h-5 text-[#0071e3]" fill="none" viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 14 L20 18 L40 10 L60 15 L80 6 L100 11 L120 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">vLLM</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">CUDA Kernels</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">FP8 / INT4</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">FlashAttention</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-black/[0.04]">
+              <div class="flex items-center gap-4 text-xs text-[#86868b]">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">fork_right</span> 88 forks</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span> 4d ago</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a class="w-8 h-8 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] flex items-center justify-center transition-colors" href="https://github.com/David-Langat" rel="noreferrer" target="_blank" title="Repository">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                </a>
+                <a class="px-3.5 py-1.5 rounded-full bg-[#0071e3]/10 hover:bg-[#0071e3]/15 text-[#0071e3] text-xs font-semibold transition-colors flex items-center gap-1" href="https://github.com/David-Langat" target="_blank">
+                  <span>View Project</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-7 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[420px] max-w-[420px] flex-shrink-0 snap-start" data-category="distributed mlops">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                    <span class="material-symbols-outlined text-[22px]">device_hub</span>
+                  </div>
+                  <div>
+                    <h3 class="font-display text-xl font-bold text-[#1d1d1f] tracking-tight hover:text-[#0071e3] transition-colors cursor-pointer">RayFlow-Orchestrator</h3>
+                    <div class="flex items-center gap-2 mt-0.5">
+                      <span class="inline-block w-2 h-2 rounded-full bg-[#0071e3]"></span>
+                      <span class="text-xs text-[#86868b] font-medium">Python • Ray</span>
+                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#f5f5f7] text-[#6e6e73]">MIT</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 px-3 py-1 rounded-full bg-[#f5f5f7] text-xs font-medium text-[#1d1d1f]">
+                  <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span>590</span>
+                </div>
+              </div>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                Dynamic graph orchestration runtime coordinating heterogeneous multi-agent simulations across elastic multi-node Ray actor pools with high-speed ZeroMQ and gRPC transport.
+              </p>
+              <div class="p-3.5 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.03] flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-[#86868b] font-medium">Commit Activity</span>
+                  <span class="text-xs font-semibold text-[#1d1d1f]">38 commits / last 30d</span>
+                </div>
+                <svg class="w-28 h-5 text-[#0071e3]" fill="none" viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 17 L25 12 L50 16 L75 8 L100 13 L120 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Ray Core</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">Multi-Agent</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">ZeroMQ</span>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-[12px] text-[#515154] font-medium">gRPC</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-black/[0.04]">
+              <div class="flex items-center gap-4 text-xs text-[#86868b]">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">fork_right</span> 72 forks</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span> 1w ago</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a class="w-8 h-8 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] flex items-center justify-center transition-colors" href="https://github.com/David-Langat" rel="noreferrer" target="_blank" title="Repository">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                </a>
+                <a class="px-3.5 py-1.5 rounded-full bg-[#0071e3]/10 hover:bg-[#0071e3]/15 text-[#0071e3] text-xs font-semibold transition-colors flex items-center gap-1" href="https://github.com/David-Langat" target="_blank">
+                  <span>View Project</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. KAGGLE COMPETITIONS & BENCHMARKS (#competitions) -->
+      <section class="w-full max-w-6xl mx-auto px-6 lg:px-8 py-20 border-t border-black/[0.06]" id="competitions">
+        <div class="flex flex-col gap-10">
+          <!-- Section Header + Kaggle Banner -->
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">Leaderboard Performance</span>
+              <h2 class="font-display text-3xl sm:text-4xl font-bold text-[#1d1d1f] tracking-tight">Kaggle Competitions &amp; Benchmarks</h2>
+              <p class="text-base text-[#6e6e73] max-w-xl font-normal">
+                Competitive algorithms, custom loss formulations, and high-ranking solutions solving complex predictive challenges.
+              </p>
+            </div>
+
+            <!-- Profile Banner -->
+            <div class="flex items-center gap-4">
+              <div class="p-3.5 pr-6 rounded-2xl bg-white border border-black/[0.08] flex items-center gap-4 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#0071e3] to-[#40a9ff] flex items-center justify-center text-white font-display text-xl font-bold shadow-sm">
+                  DL
+                </div>
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-2">
+                    <span class="font-display text-base font-bold text-[#1d1d1f]">Competitive ML</span>
+                    <span class="px-2 py-0.5 rounded-full text-[#0071e3] bg-[#0071e3]/10 text-[11px] font-semibold">Specialist</span>
+                  </div>
+                  <div class="flex items-center gap-2 mt-0.5 text-xs text-[#6e6e73]">
+                    <span>High Precision Ensembles</span>
+                    <span>•</span>
+                    <span class="text-[#86868b]">Deep Learning</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2" id="kaggleNavButtons">
+                <button aria-label="Previous competition" class="w-9 h-9 rounded-full bg-white hover:bg-[#f5f5f7] text-[#1d1d1f] flex items-center justify-center transition-all border border-black/[0.08] shadow-[0_2px_8px_rgba(0,0,0,0.03)] active:scale-95 disabled:opacity-40" onclick="document.getElementById('kaggleCarousel').scrollBy({left: -400, behavior: 'smooth'})">
+                  <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                </button>
+                <button aria-label="Next competition" class="w-9 h-9 rounded-full bg-white hover:bg-[#f5f5f7] text-[#1d1d1f] flex items-center justify-center transition-all border border-black/[0.08] shadow-[0_2px_8px_rgba(0,0,0,0.03)] active:scale-95 disabled:opacity-40" onclick="document.getElementById('kaggleCarousel').scrollBy({left: 400, behavior: 'smooth'})">
+                  <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Competition Cards Carousel -->
+          <div class="flex gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" id="kaggleCarousel">
+            
+            <!-- Card 1 -->
+            <div class="apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-6 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[380px] max-w-[380px] flex-shrink-0 snap-start">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-semibold">
+                    <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                    <span>Gold Medalist 🥇</span>
+                  </div>
+                  <span class="text-xs font-semibold text-[#1d1d1f] bg-[#f5f5f7] px-2.5 py-1 rounded-full">Top 0.5%</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-[#1d1d1f] leading-snug">Predictive Molecular Binding Affinity</h3>
+                  <span class="text-xs text-[#0071e3] font-medium mt-1 block">Bioinformatics • Graph Neural Networks</span>
+                </div>
+                <p class="text-sm text-[#6e6e73] leading-relaxed">
+                  1D/3D Graph Neural Network with cross-attention and multi-task learning. Custom pseudo-labeling strategy yielded +0.018 AUC jump on private leaderboard.
+                </p>
+                <div class="flex flex-col gap-2 pt-1">
+                  <div class="p-3 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.02] flex flex-col gap-0.5">
+                    <span class="text-[11px] font-semibold text-[#1d1d1f]">Validation Scheme:</span>
+                    <span class="text-xs text-[#6e6e73]">Scaffold-based 5-fold CV to prevent molecular cluster leakage</span>
+                  </div>
+                  <div class="p-3 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.02] flex flex-col gap-0.5">
+                    <span class="text-[11px] font-semibold text-[#1d1d1f]">Key Advantage:</span>
+                    <span class="text-xs text-[#6e6e73]">Invariant coordinate point cloud embeddings + 3D conformation</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-black/[0.04]">
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">PyG</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">RDKit</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Ensemble</span>
+                </div>
+                <span class="text-xs text-[#0071e3] font-semibold">Solution Verified</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-6 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[380px] max-w-[380px] flex-shrink-0 snap-start">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-semibold">
+                    <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                    <span>Gold Medalist 🥇</span>
+                  </div>
+                  <span class="text-xs font-semibold text-[#1d1d1f] bg-[#f5f5f7] px-2.5 py-1 rounded-full">Top 1%</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-[#1d1d1f] leading-snug">Satellite Surface Segmentation</h3>
+                  <span class="text-xs text-[#0071e3] font-medium mt-1 block">Earth Observation • Dense Masking</span>
+                </div>
+                <p class="text-sm text-[#6e6e73] leading-relaxed">
+                  UNet++ with EfficientNet backbone, mixed-precision FP16 training, and dynamic thresholding calibrated for multi-spectral 16-band TIFF satellite passes.
+                </p>
+                <div class="flex flex-col gap-2 pt-1">
+                  <div class="p-3 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.02] flex flex-col gap-0.5">
+                    <span class="text-[11px] font-semibold text-[#1d1d1f]">Validation Scheme:</span>
+                    <span class="text-xs text-[#6e6e73]">Spatial tile-blocked StratifiedKFold across geographic regions</span>
+                  </div>
+                  <div class="p-3 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.02] flex flex-col gap-0.5">
+                    <span class="text-[11px] font-semibold text-[#1d1d1f]">Key Advantage:</span>
+                    <span class="text-xs text-[#6e6e73]">TTA with multi-scale flips + custom Lovasz-Softmax focal loss</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-black/[0.04]">
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">PyTorch</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Albumentations</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">WandB</span>
+                </div>
+                <span class="text-xs text-[#0071e3] font-semibold">Solution Verified</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-6 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[380px] max-w-[380px] flex-shrink-0 snap-start">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 text-xs font-semibold">
+                    <span class="material-symbols-outlined text-[15px] text-slate-500" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+                    <span>Silver Medalist 🥈</span>
+                  </div>
+                  <span class="text-xs font-semibold text-[#1d1d1f] bg-[#f5f5f7] px-2.5 py-1 rounded-full">Top 2%</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-[#1d1d1f] leading-snug">Orderbook Volatility Modeling</h3>
+                  <span class="text-xs text-[#0071e3] font-medium mt-1 block">Quantitative Finance • Streaming Data</span>
+                </div>
+                <p class="text-sm text-[#6e6e73] leading-relaxed">
+                  High-speed feature extraction over 100M tick rows using Polars + GPU-accelerated GBDTs with custom rolling asymmetric loss penalizing tail risk.
+                </p>
+                <div class="flex flex-col gap-2 pt-1">
+                  <div class="p-3 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.02] flex flex-col gap-0.5">
+                    <span class="text-[11px] font-semibold text-[#1d1d1f]">Validation Scheme:</span>
+                    <span class="text-xs text-[#6e6e73]">PurgedGroupTimeSeriesSplit with 15-minute gap embargo</span>
+                  </div>
+                  <div class="p-3 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.02] flex flex-col gap-0.5">
+                    <span class="text-[11px] font-semibold text-[#1d1d1f]">Key Advantage:</span>
+                    <span class="text-xs text-[#6e6e73]">WAP order imbalance decay factors calculated in microsecond bins</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-black/[0.04]">
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Polars</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">XGBoost</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">CatBoost</span>
+                </div>
+                <span class="text-xs text-[#0071e3] font-semibold">Solution Verified</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-6 flex flex-col justify-between gap-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] min-w-[340px] w-[380px] max-w-[380px] flex-shrink-0 snap-start">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-semibold">
+                    <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                    <span>Gold Medalist 🥇</span>
+                  </div>
+                  <span class="text-xs font-semibold text-[#1d1d1f] bg-[#f5f5f7] px-2.5 py-1 rounded-full">Top 1%</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-[#1d1d1f] leading-snug">LLM Inference Efficiency Benchmark</h3>
+                  <span class="text-xs text-[#0071e3] font-medium mt-1 block">GenAI • Latency Optimization</span>
+                </div>
+                <p class="text-sm text-[#6e6e73] leading-relaxed">
+                  Fine-tuned 7B parameter foundation models under compute constraints using speculative decoding and low-rank dynamic adapter fusion.
+                </p>
+                <div class="flex flex-col gap-2 pt-1">
+                  <div class="p-3 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.02] flex flex-col gap-0.5">
+                    <span class="text-[11px] font-semibold text-[#1d1d1f]">Validation Scheme:</span>
+                    <span class="text-xs text-[#6e6e73]">Perplexity + Exact match benchmark with deterministic seed lock</span>
+                  </div>
+                  <div class="p-3 rounded-2xl bg-[#f5f5f7]/80 border border-black/[0.02] flex flex-col gap-0.5">
+                    <span class="text-[11px] font-semibold text-[#1d1d1f]">Key Advantage:</span>
+                    <span class="text-xs text-[#6e6e73]">FlashAttention-2 fused kernel integration reducing memory by 64%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-black/[0.04]">
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">vLLM</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">LoRA</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">PyTorch</span>
+                </div>
+                <span class="text-xs text-[#0071e3] font-semibold">Solution Verified</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. TECHNICAL ARSENAL & SKILLS MATRIX (#skills) -->
+      <section class="w-full max-w-6xl mx-auto px-6 lg:px-8 py-20 border-t border-black/[0.06]" id="skills">
+        <div class="flex flex-col gap-10">
+          <div class="flex flex-col gap-2">
+            <span class="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">Technical Depth</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-[#1d1d1f] tracking-tight">Technical Arsenal &amp; Skills Matrix</h2>
+            <p class="text-base text-[#6e6e73] max-w-2xl font-normal">
+              A profile of core machine learning frameworks, data architectures, and infrastructure tools battle-tested in production.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Column 1: Core ML -->
+            <div class="apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-6 flex flex-col gap-5 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                  <span class="material-symbols-outlined text-[20px]">memory</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-[#1d1d1f]">Deep Learning</h3>
+              </div>
+              <div class="flex flex-col gap-3.5">
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">PyTorch &amp; Distributed</span>
+                    <span class="text-[#0071e3] font-semibold">98%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 98%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Hugging Face Transformers</span>
+                    <span class="text-[#0071e3] font-semibold">92%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 92%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Ray &amp; Distributed Train</span>
+                    <span class="text-[#0071e3] font-semibold">88%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 88%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">TensorFlow / Keras</span>
+                    <span class="text-[#0071e3] font-semibold">85%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 85%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-black/[0.04]">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">TensorFlow</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">vLLM</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">FlashAttn</span>
+              </div>
+            </div>
+
+            <!-- Column 2: Data Engineering & MLOps -->
+            <div class="apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-6 flex flex-col gap-5 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                  <span class="material-symbols-outlined text-[20px]">database</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-[#1d1d1f]">Data &amp; MLOps</h3>
+              </div>
+              <div class="flex flex-col gap-3.5">
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Polars &amp; PySpark</span>
+                    <span class="text-[#0071e3] font-semibold">95%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 95%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Kubernetes &amp; Containers</span>
+                    <span class="text-[#0071e3] font-semibold">90%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 90%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Triton Inference</span>
+                    <span class="text-[#0071e3] font-semibold">86%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 86%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">MLflow &amp; Tracking</span>
+                    <span class="text-[#0071e3] font-semibold">94%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 94%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-black/[0.04]">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Docker</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Kafka</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Airflow</span>
+              </div>
+            </div>
+
+            <!-- Column 3: Languages -->
+            <div class="apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-6 flex flex-col gap-5 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                  <span class="material-symbols-outlined text-[20px]">code</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-[#1d1d1f]">Languages</h3>
+              </div>
+              <div class="flex flex-col gap-3.5">
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Python</span>
+                    <span class="text-[#0071e3] font-semibold">99%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 99%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">SQL</span>
+                    <span class="text-[#0071e3] font-semibold">92%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 92%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">TypeScript / JS</span>
+                    <span class="text-[#0071e3] font-semibold">88%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 88%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">R &amp; Statistics</span>
+                    <span class="text-[#0071e3] font-semibold">85%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 85%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-black/[0.04]">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Bash</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Rust</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">C++</span>
+              </div>
+            </div>
+
+            <!-- Column 4: Cloud & Infrastructure -->
+            <div class="apple-card-hover bg-white border border-black/[0.08] rounded-3xl p-6 flex flex-col gap-5 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#0071e3] border border-black/[0.04]">
+                  <span class="material-symbols-outlined text-[20px]">cloud</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-[#1d1d1f]">Cloud &amp; Systems</h3>
+              </div>
+              <div class="flex flex-col gap-3.5">
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Cloud Infrastructure</span>
+                    <span class="text-[#0071e3] font-semibold">94%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 94%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Linux Systems Engineering</span>
+                    <span class="text-[#0071e3] font-semibold">96%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 96%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">CI/CD &amp; GitOps</span>
+                    <span class="text-[#0071e3] font-semibold">90%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 90%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium">
+                    <span class="text-[#1d1d1f]">Monitoring &amp; Observability</span>
+                    <span class="text-[#0071e3] font-semibold">88%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#f5f5f7] overflow-hidden">
+                    <div class="h-full bg-[#0071e3] rounded-full" style="width: 88%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-black/[0.04]">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">AWS</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">GCP</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] text-[#6e6e73]">Prometheus</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. CAREER JOURNEY & EDUCATION (#experience) -->
+      <section class="w-full max-w-6xl mx-auto px-6 lg:px-8 py-20 border-t border-black/[0.06]" id="experience">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Left: Education & Core Background -->
+          <div class="lg:col-span-4 flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">Track Record</span>
+              <h2 class="font-display text-3xl sm:text-4xl font-bold text-[#1d1d1f] tracking-tight">Career Journey &amp; Foundation</h2>
+              <p class="text-base text-[#6e6e73] font-normal leading-relaxed">
+                Combining a rigorous academic foundation in Data Science and Machine Learning with deep, hands-on IT systems troubleshooting and enterprise deployment experience.
+              </p>
+            </div>
+
+            <!-- Education Card -->
+            <div class="p-6 rounded-3xl bg-white border border-black/[0.08] shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col gap-4">
+              <span class="text-xs font-semibold text-[#0071e3] uppercase tracking-wider">Academic Foundation</span>
+              <div class="flex flex-col gap-1">
+                <h4 class="font-display text-base font-bold text-[#1d1d1f]">Graduate Degree in Data Science</h4>
+                <p class="text-xs text-[#6e6e73]">AI, Machine Learning &amp; Statistical Modeling</p>
+                <span class="text-[11px] text-[#86868b] mt-0.5">Specialization: Deep Learning, NLP &amp; Computer Vision</span>
+              </div>
+              <div class="h-px bg-black/[0.05]"></div>
+              <div class="flex flex-col gap-1">
+                <h4 class="font-display text-base font-bold text-[#1d1d1f]">Information Technology &amp; Systems</h4>
+                <p class="text-xs text-[#6e6e73]">Enterprise IT Infrastructure &amp; Networking</p>
+                <span class="text-[11px] text-[#86868b] mt-0.5">Hardware maintenance, OS architecture &amp; user support</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Timeline -->
+          <div class="lg:col-span-8 flex flex-col gap-10 relative pl-8 border-l border-black/[0.08]">
+            
+            <!-- Timeline Item 1 -->
+            <div class="relative flex flex-col gap-2.5">
+              <span class="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-[#0071e3] ring-4 ring-[#fbfbfd]"></span>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-display text-xl font-bold text-[#1d1d1f]">Information Technology Technician</h3>
+                <span class="px-3 py-1 rounded-full bg-[#0071e3]/10 text-xs font-semibold text-[#0071e3]">04/2025 – Present</span>
+              </div>
+              <span class="text-sm font-semibold text-[#1d1d1f]">ENBRIDGE (Gyprock / Saint-Gobain Integration)</span>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                Deployed and configured 90+ enterprise workstations across branches. Validated M365, SAP, and secure VPN connectivity ensuring seamless cutover for 100+ end users with rapid incident turnaround during hyper-care.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-1">
+                <span class="px-3 py-0.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">Enterprise Infrastructure</span>
+                <span class="px-3 py.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">VPN &amp; Security</span>
+                <span class="px-3 py-0.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">SAP &amp; M365</span>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="relative flex flex-col gap-2.5">
+              <span class="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-[#86868b] ring-4 ring-[#fbfbfd]"></span>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-display text-xl font-bold text-[#1d1d1f]">Machine Learning &amp; Data Science Research</h3>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-xs font-semibold text-[#6e6e73]">Academic &amp; Independent</span>
+              </div>
+              <span class="text-sm font-semibold text-[#1d1d1f]">Advanced Computational Labs</span>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                Developed modular deep learning architectures for natural language processing, computer vision, and structured data competitions. Benchmarked custom stacking and Bayesian optimization models with high leaderboard precision.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-1">
+                <span class="px-3 py-0.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">PyTorch</span>
+                <span class="px-3 py-0.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">NLP &amp; Vision</span>
+                <span class="px-3 py-0.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">Polars &amp; Optuna</span>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="relative flex flex-col gap-2.5">
+              <span class="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-[#d2d2d7] ring-4 ring-[#fbfbfd]"></span>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-display text-xl font-bold text-[#1d1d1f]">IT Technician Intern</h3>
+                <span class="px-3 py-1 rounded-full bg-[#f5f5f7] text-xs font-semibold text-[#6e6e73]">NSSF</span>
+              </div>
+              <span class="text-sm font-semibold text-[#1d1d1f]">National Social Security Fund</span>
+              <p class="text-sm text-[#6e6e73] leading-relaxed">
+                Resolved 10+ daily technical incidents for 500+ employees, reducing downtime by 50%. Deployed enterprise antivirus upgrades, OS updates, and network troubleshooting protocols.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-1">
+                <span class="px-3 py-0.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">System Maintenance</span>
+                <span class="px-3 py-0.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">Network Support</span>
+                <span class="px-3 py-0.5 rounded-full bg-[#f5f5f7] text-xs text-[#6e6e73] font-medium">Incident Response</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 6. GET IN TOUCH & CONNECT (#contact) -->
+      <section class="w-full max-w-6xl mx-auto px-6 lg:px-8 py-20 border-t border-black/[0.06] mb-12" id="contact">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white border border-black/[0.08] rounded-4xl p-8 lg:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+          
+          <!-- Contact Left Column -->
+          <div class="lg:col-span-5 flex flex-col justify-between gap-8">
+            <div class="flex flex-col gap-4">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">Get In Touch</span>
+              <h2 class="font-display text-3xl sm:text-4xl font-bold text-[#1d1d1f] tracking-tight">Let's Build Something Resilient</h2>
+              <p class="text-sm text-[#6e6e73] leading-relaxed font-normal">
+                Whether you need consultation on distributed machine learning, technical leadership for your ML/data engineering initiatives, or robust systems architecture, feel free to reach out.
+              </p>
+
+              <div class="flex flex-col gap-4 pt-4">
+                <!-- Location -->
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-[#f5f5f7] flex items-center justify-center text-[#0071e3]">
+                    <span class="material-symbols-outlined text-[18px]">location_on</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[11px] text-[#86868b]">Availability</span>
+                    <span class="text-xs font-medium text-[#1d1d1f]">Open to Roles &amp; Technical Consulting</span>
+                  </div>
+                </div>
+
+                <!-- GitHub -->
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-[#f5f5f7] flex items-center justify-center text-[#0071e3]">
+                    <span class="material-symbols-outlined text-[18px]">code</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[11px] text-[#86868b]">GitHub</span>
+                    <a class="text-xs font-medium text-[#0071e3] hover:underline" href="https://github.com/David-Langat" target="_blank">github.com/David-Langat</a>
+                  </div>
+                </div>
+
+                <!-- Direct Channel -->
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-[#f5f5f7] flex items-center justify-center text-[#0071e3]">
+                    <span class="material-symbols-outlined text-[18px]">alternate_email</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[11px] text-[#86868b]">Direct Message</span>
+                    <span class="text-xs font-medium text-[#1d1d1f]">Use the transmission form opposite</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Response Window Pill -->
+            <div class="p-3.5 px-4 rounded-2xl bg-[#f5f5f7] border border-black/[0.04] flex items-center gap-3">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <div class="flex flex-col">
+                <span class="text-xs font-semibold text-[#1d1d1f]">Response window: &lt; 24 hours</span>
+                <span class="text-[11px] text-[#86868b]">Available for technical discussions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Right Column: Form -->
+          <div class="lg:col-span-7 bg-[#fbfbfd] border border-black/[0.06] rounded-3xl p-6 lg:p-8 flex flex-col gap-6">
+            <div class="flex items-center justify-between pb-3 border-b border-black/[0.06]">
+              <span class="text-xs font-mono text-[#6e6e73] font-medium">contact_channel.sh</span>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-black/20"></span>
+                <span class="w-2 h-2 rounded-full bg-black/20"></span>
+                <span class="w-2 h-2 rounded-full bg-[#0071e3]"></span>
+              </div>
+            </div>
+
+            <form class="flex flex-col gap-4" id="contactForm" onsubmit="event.preventDefault(); handleSubmit();">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-medium text-[#1d1d1f]" for="name">Your Name *</label>
+                  <input class="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.1] text-[#1d1d1f] placeholder:text-[#86868b] text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3] focus:border-transparent transition-all" id="name" placeholder="e.g. Alex Thorne" required="" type="text">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-medium text-[#1d1d1f]" for="email">Work Email *</label>
+                  <input class="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.1] text-[#1d1d1f] placeholder:text-[#86868b] text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3] focus:border-transparent transition-all" id="email" placeholder="alex@company.com" required="" type="email">
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-medium text-[#1d1d1f]" for="subject">Opportunity Type *</label>
+                <select class="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.1] text-[#1d1d1f] text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3] focus:border-transparent transition-all" id="subject" required="">
+                  <option value="ml-role">ML / Systems Engineering Role</option>
+                  <option value="consulting">ML Consulting &amp; Advisory</option>
+                  <option value="collaboration">Research &amp; Open Source Collaboration</option>
+                  <option value="general">General Technical Exchange</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-medium text-[#1d1d1f]" for="message">Message *</label>
+                <textarea class="w-full px-4 py-3 rounded-xl bg-white border border-black/[0.1] text-[#1d1d1f] placeholder:text-[#86868b] text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3] focus:border-transparent transition-all resize-none" id="message" placeholder="Detail your project scope, team objectives, or inquiry..." required="" rows="4"></textarea>
+              </div>
+
+              <button class="w-full mt-2 py-3.5 px-6 rounded-full bg-[#0071e3] hover:bg-[#0077ED] text-white text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_2px_8px_rgba(0,113,227,0.3)] active:scale-98" id="submitBtn" type="submit">
+                <span class="material-symbols-outlined text-[17px]">send</span>
+                <span>Transmit Message</span>
+              </button>
+
+              <div class="hidden text-center text-xs font-medium text-emerald-800 bg-emerald-500/10 border border-emerald-500/20 rounded-full py-3" id="formSuccess">
+                ✓ Message received. Thank you for connecting!
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Apple Style Minimalist Footer -->
+  <footer class="w-full bg-[#f5f5f7] border-t border-black/[0.06] py-10">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[#86868b]">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span class="text-[#1d1d1f] font-medium">David Langat — Portfolio &amp; Systems Architecture</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a class="hover:text-[#1d1d1f] transition-colors" href="https://github.com/David-Langat" rel="noreferrer" target="_blank">GitHub</a>
+        <a class="hover:text-[#1d1d1f] transition-colors" href="https://kaggle.com" rel="noreferrer" target="_blank">Kaggle</a>
+        <a class="hover:text-[#1d1d1f] transition-colors" href="#contact">Contact</a>
+      </div>
+      <div>&copy; 2026 David Langat. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Scripts -->
+  <script>
+    // Category Filter Logic
+    const filterButtons = document.querySelectorAll('#repoFilters button');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-white', 'text-[#1d1d1f]', 'shadow-[0_1px_3px_rgba(0,0,0,0.08)]', 'font-semibold');
+          btn.classList.add('text-[#6e6e73]', 'font-medium');
+        });
+        button.classList.add('bg-white', 'text-[#1d1d1f]', 'shadow-[0_1px_3px_rgba(0,0,0,0.08)]', 'font-semibold');
+        button.classList.remove('text-[#6e6e73]', 'font-medium');
+
+        const filter = button.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'flex';
+          } else {
+            const categories = card.getAttribute('data-category') || '';
+            if (categories.includes(filter)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // Contact Form Submission Handler
+    function handleSubmit() {
+      const btn = document.getElementById('submitBtn');
+      const successMsg = document.getElementById('formSuccess');
+      const form = document.getElementById('contactForm');
+      if (!btn || !successMsg) return;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[16px]">refresh</span> Transmitting...';
+      
+      setTimeout(() => {
+        btn.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+        form.reset();
+      }, 700);
+    }
+  </script>
+
+</body>
+</html>
